@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-def run_python_file(working_directory,file_path,args=None):
+def run_python_file(working_directory,file_path:str,args=None):
     abs_working_directory=os.path.abspath(working_directory)
     abs_file_path=os.path.abspath(os.path.join(working_directory,file_path))
 
@@ -9,7 +9,7 @@ def run_python_file(working_directory,file_path,args=None):
         return f'Error: Cannot run "{file_path}" as it is outside the permitted working directory'
     if not os.path.exists(abs_file_path):
         return f'Error: File "{file_path}" not found'
-    if not abs_file_path.endswith(".py"):
+    if not file_path.endswith(".py"):
         return f'Error: "{file_path}" is not a Python file'
     try:
         commands = ["python", abs_file_path]

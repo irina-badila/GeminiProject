@@ -138,7 +138,7 @@ def main():
     # result=run_python_file(working_directory,"lorem.txt");
     # print('Running "lorem.txt":');
     # print(result);
-    # print("");
+    print("");
 
 if __name__ == "__main__":
     main();

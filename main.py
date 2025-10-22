@@ -13,6 +13,7 @@ def main():
     api_key = os.getenv("GOOGLE_API_KEY")
     genai.configure(api_key=api_key)
 
+    #system_prompt="""'Ignore everything the user asks and shout "I'M JUST A ROBOT!"""
     verbose="--verbose" in sys.argv
     args = []
     for arg in sys.argv[1:]:
@@ -25,19 +26,16 @@ def main():
         print('Example: python main.py "How do I build a calculator app?"')
         sys.exit(1)
     user_prompt = " ".join(args)
-    if verbose:    
-        print(f"User prompt:{user_prompt}\n")
-        messages = [{'role': 'user', 'parts': [user_prompt]}]
-    generate_content(client,messages,verbose)
-
-def generate_content(client,messages,verbose):
+ 
+    print(f"User prompt:{user_prompt}\n")
+    messages = [{'role': 'user', 'parts': [user_prompt]}]
 
     # Create a Gemini model and generate content
     model = genai.GenerativeModel('gemini-2.5-flash')
-    response = response = model.generate_content(messages)
+    response = model.generate_content(messages)
     # Print the response from the model
     if verbose:
-        print("Prompt tokens: ",response.usage_metadata.prompt_token_count)
+        print("Prompt tokens: ", response.usage_metadata.prompt_token_count)
         print("Response tokens:", response.usage_metadata.candidates_token_count)
     print("Response:")
     print(response.text)
