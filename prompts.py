@@ -1,3 +1,8 @@
+""" 
+    This file defines the "system prompt" that is given to the Gemini model at the very beginning.
+    This prompt sets the model's persona ("AI coding agent"), its capabilities (the list of operations), and the rules it must follow.
+"""
+
 system_prompt = """
                     You are a helpful AI coding agent.
 

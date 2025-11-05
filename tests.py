@@ -1,8 +1,10 @@
+# Import all the individual tool functions that the AI agent can call
 from functions.get_files_info import get_files_info
 from functions.get_file_content import get_file_content
 from functions.write_file import write_file
 from functions.run_python_file import run_python_file
-from config import WORKING_DIR
+
+from config import WORKING_DIR # Import the secure working directory path from the config file
 
 # def tests():
       #check if the get_files_info works as expected
@@ -30,7 +32,7 @@ from config import WORKING_DIR
 #     print(result);
 
 def main():
-    #check if the get_file_content function works as expected
+    # check if the get_file_content function works as expected
     # working_directory="calculator"
     # #check reading lorem.txt file
     # result=get_file_content(working_directory,"lorem.txt");
