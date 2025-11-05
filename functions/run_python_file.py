@@ -17,6 +17,7 @@ def run_python_file(working_directory,file_path:str,args=None):
         if args:
             commands.extend(args)
         result = subprocess.run(commands, capture_output=True, text=True, timeout=30,cwd=abs_working_directory)
+        print(result)
         output=[]
         if result.stdout:
             output.append("STDOUT:")
@@ -44,7 +45,11 @@ schema_run_python_file = types.FunctionDeclaration(
                 description="The file to run, relative to the working directory.",
             ),
             "args": types.Schema(
-                type=types.Type.STRING,
+                type=types.Type.ARRAY,
+                description="An optional array of strings to be used as the CLI args for the Python file,",
+                items=types.Schema(
+                    type=types.Type.STRING,
+                ),
             ),
         },
     ),

@@ -2,6 +2,7 @@ from functions.get_files_info import get_files_info
 from functions.get_file_content import get_file_content
 from functions.write_file import write_file
 from functions.run_python_file import run_python_file
+from config import WORKING_DIR
 
 # def tests():
       #check if the get_files_info works as expected
@@ -102,25 +103,25 @@ def main():
 
     #check if the run_python_file works as expected
     #check the run_python_file function
-    # working_directory="calculator"
+    working_directory=WORKING_DIR
 
-    # #check running calculator/main.py with arguments
+    #check running calculator/main.py with arguments
     # result=run_python_file(working_directory,"main.py",["3 + 5"]);
     # print('Running "main.py":');
     # print(result);
     # print("");
 
-    # #check running calculator/main.py without arguments
+    #check running calculator/main.py without arguments
     # result=run_python_file(working_directory,"main.py");
     # print('Running "main.py":');
     # print(result);
     # print("");
 
-    # #check running tests.py file
-    # result=run_python_file(working_directory,"test.py");
-    # print('Running "test.py":');
-    # print(result);
-    # print("");  
+    #check running tests.py file
+    result=run_python_file(working_directory,"test.py");
+    print('Running "test.py":');
+    print(result);
+    print("");  
 
     # #check running ../main.py file outside working directory
     # result=run_python_file(working_directory,"../main.py");
